@@ -162,6 +162,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "dev.chwan1.avpro-video": {
+      "version": "2.8.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.chwan1.dev"
+    },
     "dev.chwan1.utility": {
       "version": "1.5.46",
       "depth": 0,
