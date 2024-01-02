@@ -32,7 +32,7 @@ public class MultiChannelAudio : MonoBehaviour
         {
             var offset = sample * channels;
             data[offset + startChannel] = data[offset + 0];
-            data[offset + startChannel + 1] = data[offset + 1];
+            // data[offset + startChannel + 1] = data[offset + 1];
             data[offset + 0] = 0.0F;
             data[offset + 1] = 0.0F;
         }
