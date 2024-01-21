@@ -803,7 +803,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: CHWAN1_USE_AVPRO
+    Standalone: CHWAN1_USE_AVPRO;CHWAN1_USE_CONSOLE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07927a3f7644215469c82a85dee5a0c1, type: 3}
   m_Name: RootSetting
   m_EditorClassIdentifier: 
-  editorRoot: ..\..\..\Deploy\Build
+  editorRoot: ..\..\Build-2401-SoundTree
   runtimeRoot: ..\
