@@ -16,6 +16,7 @@ public class SerialPortBridge : MonoBehaviour
 
     public StringEvent onMessage;
 
+    [Serializable]
     public class StringEvent : UnityEvent<string> { }
 
     Task task;

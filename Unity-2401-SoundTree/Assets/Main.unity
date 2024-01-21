@@ -1055,6 +1055,7 @@ Transform:
   m_Children:
   - {fileID: 596025417}
   - {fileID: 583233777}
+  - {fileID: 787784413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &251049448
@@ -1082,12 +1083,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb136401ccd5dd43a821f7dc4bfa303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debounceTime: 0.1
   mediaPlayerIdle: {fileID: 521690449}
   mediaPlayerShow: {fileID: 1744689838}
-  showVideoPaths: []
-  debounceTime: 0.1
-  mediaPlayerFlow: {fileID: 0}
-  canvasGroupCtrlFlow: {fileID: 0}
+  volumeCh3: {fileID: 0}
 --- !u!114 &251049450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1103,6 +1102,21 @@ MonoBehaviour:
   portName: COM2
   baudRate: 115200
   verbose: 1
+  onMessage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 251049449}
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
+        m_MethodName: OnMessage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &260581201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,6 +2147,64 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1 &787784412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787784413}
+  - component: {fileID: 787784414}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787784413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787784412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 251049447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787784414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787784412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a13c337fc59432a95a17e5465b0c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls: []
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 8650d70d543466c43915734836ac84bf, type: 2}
+    _eventInstancer: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!1001 &818961337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4256,7 +4328,7 @@ MonoBehaviour:
   _autoOpen: 0
   _autoPlayOnStart: 0
   _loop: 0
-  _audioVolume: 1
+  _audioVolume: 0.8
   _audioBalance: 0
   _audioMuted: 0
   _playbackRate: 1

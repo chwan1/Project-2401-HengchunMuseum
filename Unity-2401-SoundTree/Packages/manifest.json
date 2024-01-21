@@ -18,6 +18,7 @@
   "dependencies": {
     "com.ultracombos.activity": "1.0.2",
     "com.ultracombos.control-panel": "2.0.37",
+    "com.unity-atoms.unity-atoms-base-atoms": "4.5.0",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.ide.vscode": "1.2.5",

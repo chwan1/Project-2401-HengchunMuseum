@@ -203,6 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001738843fd993249bf3c795b59230dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVolume: 0.5
+  maxVolume: 0.8
   multiplier: 0
   player: {fileID: 4295646675333541194}
