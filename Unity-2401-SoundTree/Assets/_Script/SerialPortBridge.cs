@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 using UnityEngine;
 using System.IO.Ports;
 using System;
+using UnityEngine.Events;
 
 public class SerialPortBridge : MonoBehaviour
 {
     public string portName = "COM3";
     public int baudRate = 9600;
+    public bool verbose = true;
+
+    public StringEvent onMessage;
+
+    public class StringEvent : UnityEvent<string> { }
 
     Task task;
     // ConcurrentQueue<byte[]> queue = new ConcurrentQueue<byte[]>();
@@ -54,7 +60,12 @@ public class SerialPortBridge : MonoBehaviour
                 if (port.BytesToRead > 0)
                 {
                     var message = port.ReadExisting();
-                    actions.Enqueue(() => Debug.Log(message));
+                    actions.Enqueue(() =>
+                    {
+                        if (verbose)
+                            Debug.Log(message);
+                        onMessage.Invoke(message);
+                    });
                 }
                 await Task.Delay(20);
             }
