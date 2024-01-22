@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f0db7cb31052b5f4ba77cc608e4f1ff1
+labels:
+- Coding
+- Easy
+- C#
+- cron
+- schedule
+timeCreated: 1434192760
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

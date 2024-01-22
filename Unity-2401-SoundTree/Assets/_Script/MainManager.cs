@@ -21,6 +21,8 @@ public class MainManager : MonoBehaviour
     public FloatVariable sensor5;
     public FloatVariable sensorVocalVirtual;
 
+    public string SensorStatus { get; private set; }
+
     KeyCode keyCodeSensor1 = KeyCode.Alpha1;
     KeyCode keyCodeSensor2 = KeyCode.Alpha2;
     KeyCode keyCodeSensor3 = KeyCode.Alpha3;
@@ -52,6 +54,7 @@ public class MainManager : MonoBehaviour
 
         yield return new WaitForSeconds(5);
         mediaPlayerIdle.Speed = 1;
+        mediaPlayerIdle.Loop = true;
     }
 
     // Update is called once per frame
@@ -68,6 +71,8 @@ public class MainManager : MonoBehaviour
         sensor3.Value = timerSensor3 >= Time.time ? 1f : 0f;
         sensor4.Value = timerSensor4 >= Time.time ? 1f : 0f;
         sensor5.Value = timerSensor5 >= Time.time ? 1f : 0f;
+
+        SensorStatus = $"{sensor1.Value} {sensor2.Value} {sensor3.Value} {sensor4.Value} {sensor5.Value}";
 
         var arr = new float[] { sensor1.Value, sensor2.Value, sensor3.Value, sensor4.Value, sensor5.Value };
         sensorVocalVirtual.Value = arr.Any(v => v == 1) ? 1f : 0f;
