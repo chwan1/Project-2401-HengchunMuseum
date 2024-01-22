@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4937954329475137730}
   - component: {fileID: 1128093002572942232}
   - component: {fileID: 1950608511111863914}
+  - component: {fileID: 9163715871847967877}
   m_Layer: 0
   m_Name: Audio Media Player Mono
   m_TagString: Untagged
@@ -220,3 +221,36 @@ MonoBehaviour:
   maxVolume: 0.8
   multiplier: 0
   player: {fileID: 4295646675333541194}
+--- !u!114 &9163715871847967877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845283724890081784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b097eaea0af0b6a4b84336c12035161a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  src:
+    serializable: 0
+    range: {x: 0, y: 0}
+    displayPath: 
+    editingDisplayPath: 0
+    instance: {fileID: 0}
+    preInstance: {fileID: 0}
+    type: 
+    member: 
+  filter:
+    List: []
+  dst:
+    List:
+    - serializable: 0
+      range: {x: 0, y: 0}
+      displayPath: multiplier
+      editingDisplayPath: 0
+      instance: {fileID: 1950608511111863914}
+      preInstance: {fileID: 1950608511111863914}
+      type: 
+      member: multiplier

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b46c0f62c93543f88d3eb693740d091, type: 3}
-  m_Name: Volume Ch3
+  m_Name: Sensor 3
   m_EditorClassIdentifier: 
   _developerDescription: 
   _id: 
   _value: 0
-  _changed: {fileID: 11400000, guid: 8650d70d543466c43915734836ac84bf, type: 2}
+  _changed: {fileID: 11400000, guid: 56d1273268c08294ababaa14157ff595, type: 2}
   _changedWithHistory: {fileID: 0}
   _triggerChangedOnOnEnable: 0
   _triggerChangedWithHistoryOnOnEnable: 0
