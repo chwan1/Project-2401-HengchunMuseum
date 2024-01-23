@@ -5,6 +5,7 @@ public class ValueRamp : MonoBehaviour
 {
     public float Value { get; private set; }
     public FloatVariable duration;
+    public FloatVariable fadeOutDurationScale;
 
     float valueEnd;
     float valueStart;
@@ -15,6 +16,7 @@ public class ValueRamp : MonoBehaviour
     {
         var t = Mathf.InverseLerp(valueStart, valueEnd, Value);
         if (valueStart == valueEnd) t = 1;
+        if (Value > value) t *= fadeOutDurationScale.Value;
 
         (valueStart, valueEnd) = (Value, value);
         (timeStampStart, timeStampEnd) = (Time.time, Time.time + duration.Value * t);

@@ -84,3 +84,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: {fileID: 11400000, guid: eb6cfb314b59af44d874eab784763e17, type: 2}
+  fadeOutDurationScale: {fileID: 11400000, guid: b75f45889c6db014b83cc79a309bfd3a,
+    type: 2}
