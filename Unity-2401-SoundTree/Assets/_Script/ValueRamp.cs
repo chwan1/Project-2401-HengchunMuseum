@@ -19,6 +19,9 @@ public class ValueRamp : MonoBehaviour
         if (Value > value) t *= fadeOutDurationScale.Value;
 
         (valueStart, valueEnd) = (Value, value);
+
+        if (t == 0) return;
+
         (timeStampStart, timeStampEnd) = (Time.time, Time.time + duration.Value * t);
     }
 

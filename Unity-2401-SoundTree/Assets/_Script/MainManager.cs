@@ -21,7 +21,10 @@ public class MainManager : MonoBehaviour
     public FloatVariable sensor5;
     public FloatVariable sensorVocalVirtual;
 
+    public List<ValueRamp> valueRamps = new List<ValueRamp>();
+
     public string SensorStatus { get; private set; }
+    public string SensorAudioRate { get; private set; }
 
     KeyCode keyCodeSensor1 = KeyCode.Alpha1;
     KeyCode keyCodeSensor2 = KeyCode.Alpha2;
@@ -76,6 +79,9 @@ public class MainManager : MonoBehaviour
 
         var arr = new float[] { sensor1.Value, sensor2.Value, sensor3.Value, sensor4.Value, sensor5.Value };
         sensorVocalVirtual.Value = arr.Any(v => v == 1) ? 1f : 0f;
+
+        SensorAudioRate = valueRamps
+            .Aggregate("", (cur, nxt) => $"{cur}{nxt.Value}\n");
     }
 
     public void NextVideo()
