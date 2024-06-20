@@ -7428,7 +7428,7 @@ MonoBehaviour:
     width: 1
     height: 1
   _setNativeSize: 0
-  _scaleMode: 2
+  _scaleMode: 1
   _noDefaultDisplay: 1
   _displayInEditor: 1
 --- !u!222 &2102704068
@@ -7625,7 +7625,7 @@ MonoBehaviour:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
       overrideDecryptionKey: 
-    videoApi: 0
+    videoApi: 1
     useHardwareDecoding: 1
     useTextureMips: 0
     use10BitTextures: 0
@@ -7890,7 +7890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f142293e05a8a3540a10d60e78d4dc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Material/Video-Show-Intro.mp4
+  path: Material/Video-Show-Intro.mov
   onValue:
     m_PersistentCalls:
       m_Calls:
