@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UltraCombos.ControlPanel;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]

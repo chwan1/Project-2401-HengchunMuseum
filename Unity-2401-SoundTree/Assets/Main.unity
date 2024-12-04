@@ -1654,12 +1654,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideCursorInStandalone: 1
-  frameLess: 0
-  fullScreenMode: 1
   targetFrameRate: 60
   resolution: {x: 3840, y: 1200}
   position: {x: 0, y: 0}
+  framelessOrMultiWindow: 0
   mainWindowDisplayId: 0
+  fullScreenMode: 1
 --- !u!4 &251049447
 Transform:
   m_ObjectHideFlags: 0
@@ -2543,6 +2543,19 @@ MonoBehaviour:
         m_CallState: 0
       - m_Target: {fileID: 1359840562}
         m_TargetAssemblyTypeName: Chwan1.Utility.MediaPlayer.AVProMediaPlayer, Chwan1.Extention.AVPro
+        m_MethodName: set_CursorPosition
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 521690449}
+        m_TargetAssemblyTypeName: Chwan1.Utility.MediaPlayer.ParallelMediaPlayer,
+          Chwan1.Utility.MediaPlayer
         m_MethodName: set_CursorPosition
         m_Mode: 4
         m_Arguments:
@@ -3864,9 +3877,7 @@ MonoBehaviour:
     serializable: 0
     range: {x: 0, y: 0}
     displayPath: 
-    editingDisplayPath: 0
     instance: {fileID: 1139635124}
-    preInstance: {fileID: 1139635124}
     type: 
     member: remainedTimeNormalized
   filter:
@@ -3876,17 +3887,13 @@ MonoBehaviour:
     - serializable: 0
       range: {x: 0, y: 0}
       displayPath: alpha
-      editingDisplayPath: 0
       instance: {fileID: 755283580}
-      preInstance: {fileID: 755283580}
       type: 
       member: alpha
     - serializable: 0
       range: {x: 0, y: 0}
       displayPath: Value
-      editingDisplayPath: 0
       instance: {fileID: 596025418}
-      preInstance: {fileID: 596025418}
       type: 
       member: Value
 --- !u!4 &1139635126
@@ -4997,16 +5004,6 @@ MonoBehaviour:
   _textureFilterMode: 1
   _textureWrapMode: 1
   _textureAnisoLevel: 0
-  _useVideoResolve: 0
-  _videoResolveOptions:
-    applyHSBC: 0
-    hue: 0
-    saturation: 0.5
-    brightness: 0.5
-    contrast: 0.5
-    gamma: 1
-    tint: {r: 1, g: 1, b: 1, a: 1}
-    generateMipmaps: 0
   _sideloadSubtitles: 0
   _subtitlePath:
     _pathType: 2
@@ -5021,7 +5018,6 @@ MonoBehaviour:
   _keyAuth:
     keyServerToken: 
     overrideDecryptionKeyBase64: 
-    overrideDecryptionKey: 
   _events:
     m_PersistentCalls:
       m_Calls: []
@@ -5036,9 +5032,9 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     videoApi: 0
     useHardwareDecoding: 1
+    useRendererSync: 1
     useTextureMips: 0
     use10BitTextures: 0
     hintAlphaChannel: 0
@@ -5053,7 +5049,7 @@ MonoBehaviour:
     pauseOnPrerollComplete: 0
     forceAudioOutputDeviceName: 
     preferredFilters: []
-    audioOutput: 3
+    _audioMode: 0
     audio360ChannelMode: 0
     startWithHighestBitrate: 0
     useLowLiveLatency: 0
@@ -5061,13 +5057,12 @@ MonoBehaviour:
     prerollFrameCount: 4
     useUnityAudio: 0
     enableAudio360: 0
-  _optionsMacOSX:
+  _options_macOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -5077,13 +5072,12 @@ MonoBehaviour:
     _preferredForwardBufferDuration: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
-  _optionsIOS:
+  _options_iOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -5093,13 +5087,27 @@ MonoBehaviour:
     _preferredForwardBufferDuration: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
-  _optionsTVOS:
+  _options_tvOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
+    textureFormat: 0
+    _audioMode: 0
+    _flags: 0
+    maximumPlaybackRate: 2
+    _preferredPeakBitRate: 0
+    _preferredPeakBitRateUnits: 1
+    _preferredForwardBufferDuration: 0
+    _preferredMaximumResolution: 0
+    _customPreferredMaximumResolution: {x: 0, y: 0}
+  _options_visionOS:
+    httpHeaders:
+      httpHeaders: []
+    keyAuth:
+      keyServerToken: 
+      overrideDecryptionKeyBase64: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -5115,24 +5123,29 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
+    textureFormat: 0
+    _audioMode: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
     _preferredPeakBitRate: 0
     _preferredPeakBitRateUnits: 1
     videoApi: 2
-    useFastOesPath: 0
     showPosterFrame: 0
-    audioOutput: 0
     audio360ChannelMode: 0
+    audio360LatencyMS: 0
     preferSoftwareDecoder: 0
-    blitTextureFiltering: 0
+    forceRtpTCP: 0
+    forceEnableMediaCodecAsynchronousQueueing: 0
     fileOffset: 0
     startWithHighestBitrate: 0
     minBufferMs: 50000
     maxBufferMs: 50000
     bufferForPlaybackMs: 2500
     bufferForPlaybackAfterRebufferMs: 5000
+    useFastOesPath: 0
+    audioOutput: 0
+    blitTextureFiltering: 0
+    forceEnableMediaCodecAsyncQueueing: 0
     enableAudio360: 0
   _optionsWindowsUWP:
     httpHeaders:
@@ -5140,14 +5153,14 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     useHardwareDecoding: 1
+    useRendererSync: 1
     useTextureMips: 0
     use10BitTextures: 0
     hintOutput10Bit: 0
     useLowLatency: 0
     videoApi: 1
-    audioOutput: 0
+    _audioMode: 0
     audio360ChannelMode: 0
     startWithHighestBitrate: 0
     useLowLiveLatency: 0
@@ -5157,7 +5170,6 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     externalLibrary: 0
     useTextureMips: 0
   m_VideoPath: 
@@ -5602,9 +5614,7 @@ MonoBehaviour:
     serializable: 0
     range: {x: 0, y: 0}
     displayPath: Value
-    editingDisplayPath: 0
     instance: {fileID: 787784416}
-    preInstance: {fileID: 787784416}
     type: 
     member: Value
   filter:
@@ -5614,9 +5624,7 @@ MonoBehaviour:
     - serializable: 0
       range: {x: 0, y: 0}
       displayPath: value
-      editingDisplayPath: 0
       instance: {fileID: 1635100055}
-      preInstance: {fileID: 1635100055}
       type: 
       member: value
 --- !u!114 &1635100054
@@ -6170,16 +6178,6 @@ MonoBehaviour:
   _textureFilterMode: 1
   _textureWrapMode: 1
   _textureAnisoLevel: 0
-  _useVideoResolve: 0
-  _videoResolveOptions:
-    applyHSBC: 0
-    hue: 0
-    saturation: 0.5
-    brightness: 0.5
-    contrast: 0.5
-    gamma: 1
-    tint: {r: 1, g: 1, b: 1, a: 1}
-    generateMipmaps: 0
   _sideloadSubtitles: 0
   _subtitlePath:
     _pathType: 2
@@ -6194,7 +6192,6 @@ MonoBehaviour:
   _keyAuth:
     keyServerToken: 
     overrideDecryptionKeyBase64: 
-    overrideDecryptionKey: 
   _events:
     m_PersistentCalls:
       m_Calls: []
@@ -6209,9 +6206,9 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     videoApi: 0
     useHardwareDecoding: 1
+    useRendererSync: 1
     useTextureMips: 0
     use10BitTextures: 0
     hintAlphaChannel: 0
@@ -6226,7 +6223,7 @@ MonoBehaviour:
     pauseOnPrerollComplete: 0
     forceAudioOutputDeviceName: 
     preferredFilters: []
-    audioOutput: 0
+    _audioMode: 0
     audio360ChannelMode: 0
     startWithHighestBitrate: 0
     useLowLiveLatency: 0
@@ -6234,13 +6231,12 @@ MonoBehaviour:
     prerollFrameCount: 4
     useUnityAudio: 0
     enableAudio360: 0
-  _optionsMacOSX:
+  _options_macOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -6250,13 +6246,12 @@ MonoBehaviour:
     _preferredForwardBufferDuration: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
-  _optionsIOS:
+  _options_iOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -6266,13 +6261,27 @@ MonoBehaviour:
     _preferredForwardBufferDuration: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
-  _optionsTVOS:
+  _options_tvOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
+    textureFormat: 0
+    _audioMode: 0
+    _flags: 0
+    maximumPlaybackRate: 2
+    _preferredPeakBitRate: 0
+    _preferredPeakBitRateUnits: 1
+    _preferredForwardBufferDuration: 0
+    _preferredMaximumResolution: 0
+    _customPreferredMaximumResolution: {x: 0, y: 0}
+  _options_visionOS:
+    httpHeaders:
+      httpHeaders: []
+    keyAuth:
+      keyServerToken: 
+      overrideDecryptionKeyBase64: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -6288,24 +6297,29 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
+    textureFormat: 0
+    _audioMode: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
     _preferredPeakBitRate: 0
     _preferredPeakBitRateUnits: 1
     videoApi: 2
-    useFastOesPath: 0
     showPosterFrame: 0
-    audioOutput: 0
     audio360ChannelMode: 0
+    audio360LatencyMS: 0
     preferSoftwareDecoder: 0
-    blitTextureFiltering: 0
+    forceRtpTCP: 0
+    forceEnableMediaCodecAsynchronousQueueing: 0
     fileOffset: 0
     startWithHighestBitrate: 0
     minBufferMs: 50000
     maxBufferMs: 50000
     bufferForPlaybackMs: 2500
     bufferForPlaybackAfterRebufferMs: 5000
+    useFastOesPath: 0
+    audioOutput: 0
+    blitTextureFiltering: 0
+    forceEnableMediaCodecAsyncQueueing: 0
     enableAudio360: 0
   _optionsWindowsUWP:
     httpHeaders:
@@ -6313,14 +6327,14 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     useHardwareDecoding: 1
+    useRendererSync: 1
     useTextureMips: 0
     use10BitTextures: 0
     hintOutput10Bit: 0
     useLowLatency: 0
     videoApi: 1
-    audioOutput: 0
+    _audioMode: 0
     audio360ChannelMode: 0
     startWithHighestBitrate: 0
     useLowLiveLatency: 0
@@ -6330,7 +6344,6 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     externalLibrary: 0
     useTextureMips: 0
   m_VideoPath: 
@@ -6573,9 +6586,7 @@ MonoBehaviour:
     serializable: 0
     range: {x: 0, y: 0}
     displayPath: 
-    editingDisplayPath: 0
     instance: {fileID: 1809439835}
-    preInstance: {fileID: 1809439835}
     type: 
     member: remainedTimeNormalized
   filter:
@@ -6587,17 +6598,13 @@ MonoBehaviour:
     - serializable: 0
       range: {x: 0, y: 0}
       displayPath: alpha
-      editingDisplayPath: 0
       instance: {fileID: 755283580}
-      preInstance: {fileID: 755283580}
       type: 
       member: alpha
     - serializable: 0
       range: {x: 0, y: 0}
       displayPath: Value
-      editingDisplayPath: 0
       instance: {fileID: 596025418}
-      preInstance: {fileID: 596025418}
       type: 
       member: Value
 --- !u!4 &1809439837
@@ -7453,6 +7460,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableIfDistributed: 1
   disableInPlayMode: 1
+  onAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  startDelaySecond: 0
+  startDelayFrame: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2135264469
 GameObject:
   m_ObjectHideFlags: 0
@@ -7585,16 +7600,6 @@ MonoBehaviour:
   _textureFilterMode: 1
   _textureWrapMode: 1
   _textureAnisoLevel: 0
-  _useVideoResolve: 0
-  _videoResolveOptions:
-    applyHSBC: 0
-    hue: 0
-    saturation: 0.5
-    brightness: 0.5
-    contrast: 0.5
-    gamma: 1
-    tint: {r: 1, g: 1, b: 1, a: 1}
-    generateMipmaps: 0
   _sideloadSubtitles: 0
   _subtitlePath:
     _pathType: 2
@@ -7609,7 +7614,6 @@ MonoBehaviour:
   _keyAuth:
     keyServerToken: 
     overrideDecryptionKeyBase64: 
-    overrideDecryptionKey: 
   _events:
     m_PersistentCalls:
       m_Calls: []
@@ -7624,9 +7628,9 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     videoApi: 1
     useHardwareDecoding: 1
+    useRendererSync: 1
     useTextureMips: 0
     use10BitTextures: 0
     hintAlphaChannel: 0
@@ -7641,7 +7645,7 @@ MonoBehaviour:
     pauseOnPrerollComplete: 0
     forceAudioOutputDeviceName: 
     preferredFilters: []
-    audioOutput: 0
+    _audioMode: 0
     audio360ChannelMode: 0
     startWithHighestBitrate: 0
     useLowLiveLatency: 0
@@ -7649,13 +7653,12 @@ MonoBehaviour:
     prerollFrameCount: 4
     useUnityAudio: 0
     enableAudio360: 0
-  _optionsMacOSX:
+  _options_macOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -7665,13 +7668,12 @@ MonoBehaviour:
     _preferredForwardBufferDuration: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
-  _optionsIOS:
+  _options_iOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -7681,13 +7683,27 @@ MonoBehaviour:
     _preferredForwardBufferDuration: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
-  _optionsTVOS:
+  _options_tvOS:
     httpHeaders:
       httpHeaders: []
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
+    textureFormat: 0
+    _audioMode: 0
+    _flags: 0
+    maximumPlaybackRate: 2
+    _preferredPeakBitRate: 0
+    _preferredPeakBitRateUnits: 1
+    _preferredForwardBufferDuration: 0
+    _preferredMaximumResolution: 0
+    _customPreferredMaximumResolution: {x: 0, y: 0}
+  _options_visionOS:
+    httpHeaders:
+      httpHeaders: []
+    keyAuth:
+      keyServerToken: 
+      overrideDecryptionKeyBase64: 
     textureFormat: 0
     _audioMode: 0
     _flags: 0
@@ -7703,24 +7719,29 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
+    textureFormat: 0
+    _audioMode: 0
     _preferredMaximumResolution: 0
     _customPreferredMaximumResolution: {x: 0, y: 0}
     _preferredPeakBitRate: 0
     _preferredPeakBitRateUnits: 1
     videoApi: 2
-    useFastOesPath: 0
     showPosterFrame: 0
-    audioOutput: 0
     audio360ChannelMode: 0
+    audio360LatencyMS: 0
     preferSoftwareDecoder: 0
-    blitTextureFiltering: 0
+    forceRtpTCP: 0
+    forceEnableMediaCodecAsynchronousQueueing: 0
     fileOffset: 0
     startWithHighestBitrate: 0
     minBufferMs: 50000
     maxBufferMs: 50000
     bufferForPlaybackMs: 2500
     bufferForPlaybackAfterRebufferMs: 5000
+    useFastOesPath: 0
+    audioOutput: 0
+    blitTextureFiltering: 0
+    forceEnableMediaCodecAsyncQueueing: 0
     enableAudio360: 0
   _optionsWindowsUWP:
     httpHeaders:
@@ -7728,14 +7749,14 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     useHardwareDecoding: 1
+    useRendererSync: 1
     useTextureMips: 0
     use10BitTextures: 0
     hintOutput10Bit: 0
     useLowLatency: 0
     videoApi: 1
-    audioOutput: 0
+    _audioMode: 0
     audio360ChannelMode: 0
     startWithHighestBitrate: 0
     useLowLiveLatency: 0
@@ -7745,7 +7766,6 @@ MonoBehaviour:
     keyAuth:
       keyServerToken: 
       overrideDecryptionKeyBase64: 
-      overrideDecryptionKey: 
     externalLibrary: 0
     useTextureMips: 0
   m_VideoPath: 
